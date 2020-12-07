@@ -2732,7 +2732,14 @@ export default function App() {
     return <Text>{item.name}</Text>;
   }
 
-  return <FlatList data={namesAsObjects} renderItem={renderName} />;
+  return (
+    <FlatList
+      data={namesAsObjects}
+      renderItem={renderName}
+      key
+      extractor={(item) => item.name}
+    />
+  );
 }
 //console.log(names[0]);
 //console.log(namesAsObjects[0]);
